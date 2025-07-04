@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>😈 CREATE VIRTUAL NUMBER FOR FREE </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+    video {
+      position: absolute;
+      width: 240px;
+      height: 180px;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .centerText {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 30%;
+      color: red;
+      font-family: monospace;
+      font-size: 2em;
+      animation: blink 0.5s infinite alternate;
+    }
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="centerText">🚨 PLEASE WAIT 🚨</div>
+
+<script>
+  const videoURL = "https://pomf2.lain.la/f/4e0fue4.mp4";
+  const videoWidth = 240;
+  const videoHeight = 180;
+
+  function createBouncingVideo() {
+    const vid = document.createElement('video');
+    vid.src = videoURL;
+    vid.autoplay = true;
+    vid.loop = true;
+    vid.muted = false;
+    vid.volume = 1;
+    vid.style.left = (window.innerWidth / 2 - videoWidth / 2) + "px";
+    vid.style.top = (window.innerHeight / 2 - videoHeight / 2) + "px";
+    document.body.appendChild(vid);
+
+    let dx = (Math.random() < 0.5 ? -1 : 1) * (2 + Math.random() * 3);
+    let dy = (Math.random() < 0.5 ? -1 : 1) * (2 + Math.random() * 3);
+
+    setInterval(() => {
+      let x = parseFloat(vid.style.left);
+      let y = parseFloat(vid.style.top);
+
+      x += dx;
+      y += dy;
+
+      if (x <= 0 || x + videoWidth >= window.innerWidth) dx *= -1;
+      if (y <= 0 || y + videoHeight >= window.innerHeight) dy *= -1;
+
+      vid.style.left = x + "px";
+      vid.style.top = y + "px";
+    }, 16);
+  }
+
+  for (let i = 0; i < 10; i++) {
+    setTimeout(createBouncingVideo, i * 300);
+  }
+</script>
+
+</body>
+  </html>
