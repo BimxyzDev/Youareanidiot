@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>😈 CREATE VIRTUAL NUMBER FOR FREE </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> CREATE VIRTUAL NUMBER FOR FREE </title>
   <style>
     html, body {
       margin: 0;
-      padding: 0;
       overflow: hidden;
-      background-color: black;
+      background: black;
     }
     video {
       position: absolute;
@@ -18,25 +16,9 @@
       z-index: 999;
       pointer-events: none;
     }
-    .centerText {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      top: 30%;
-      color: red;
-      font-family: monospace;
-      font-size: 2em;
-      animation: blink 0.5s infinite alternate;
-    }
-    @keyframes blink {
-      from { opacity: 1; }
-      to { opacity: 0; }
-    }
   </style>
 </head>
 <body>
-
-<div class="centerText">🚨 PLEASE WAIT 🚨</div>
 
 <script>
   const videoURL = "https://pomf2.lain.la/f/4e0fue4.mp4";
@@ -64,18 +46,20 @@
       x += dx;
       y += dy;
 
+      // Bounce if hitting edge
       if (x <= 0 || x + videoWidth >= window.innerWidth) dx *= -1;
       if (y <= 0 || y + videoHeight >= window.innerHeight) dy *= -1;
 
       vid.style.left = x + "px";
       vid.style.top = y + "px";
-    }, 16);
+    }, 16); // ~60fps
   }
 
+  // Spawn multiple bouncing videos
   for (let i = 0; i < 10; i++) {
-    setTimeout(createBouncingVideo, i * 300);
+    setTimeout(createBouncingVideo, i * 500);
   }
 </script>
 
 </body>
-  </html>
+</html>
